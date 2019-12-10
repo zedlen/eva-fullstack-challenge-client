@@ -78,7 +78,7 @@ function App() {
         <tbody>
           {results.map((result,index)=>{
             console.log(result)
-            return (<tr className={'row '+(index%2===0?'even':'')}>
+            return (<tr key={index} className={'row '+(index%2===0?'even':'')}>
               
               <td className='col header'>{result.name}</td>
               <td className='col header'>{moment(result.datetime).format('lll')}</td>
