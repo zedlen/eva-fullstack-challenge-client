@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+table{
+  width: 100%;
+}
+
+thead{
+  background-color: #afafaf;
+}
+
+.col{
+  width: 33.33333333%;
+  padding: 10px;
+}
+
+.even{
+  background-color: #fafafa;
+}

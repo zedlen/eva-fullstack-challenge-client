@@ -1,6 +1,7 @@
 import React from 'react';
 import FormCreator from './components/formCreator';
 import Axios from 'axios'
+import * as moment from 'moment'
 const form = [
   {
     name:'date_start',
@@ -66,12 +67,26 @@ function App() {
   return (
     <div className="App">
       <FormCreator form={form} getValues={getValues}/>
-      {results.map(result=>{
-        console.log(result)
-        return (<div>
-          {result.name}
-        </div>)
-      })}
+      <table>
+        <thead>
+          <tr className='row'>
+            <th className='col header'>Name</th>
+            <th className='col header'>Datetime</th>
+            <th className='col header'>Medications</th>
+          </tr>
+        </thead>
+        <tbody>
+          {results.map((result,index)=>{
+            console.log(result)
+            return (<tr className={'row '+(index%2===0?'even':'')}>
+              
+              <td className='col header'>{result.name}</td>
+              <td className='col header'>{moment(result.datetime).format('lll')}</td>
+              <td className='col header'>{JSON.parse(result.consumedMedications).join(', ')}</td>
+            </tr>)
+          })}
+        </tbody>
+      </table>      
     </div>
   );
 }
